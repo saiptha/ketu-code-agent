@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   Button, 
@@ -25,7 +24,7 @@ import { IdeaMode } from "@/components/IdeaMode";
 import { DesignMode } from "@/components/DesignMode";
 import { DeployMode } from "@/components/DeployMode";
 import { ConfigPanel } from "@/components/ConfigPanel";
-import { Settings, Code, Play, Lightbulb, PaintBucket, Upload } from "lucide-react";
+import { Settings, Play, Lightbulb, PaintBucket, Upload } from "lucide-react";
 
 type AppMode = "idea" | "design" | "generate" | "deploy";
 type GenerateSubMode = "chat" | "agent" | "agent-auto";
@@ -39,7 +38,13 @@ const Index = () => {
     switch (mode) {
       case "idea": return <Lightbulb className="h-4 w-4" />;
       case "design": return <PaintBucket className="h-4 w-4" />;
-      case "generate": return <Code className="h-4 w-4" />;
+      case "generate": return (
+        <img 
+          src="/placeholder.svg" 
+          alt="Generate" 
+          className="h-4 w-4"
+        />
+      );
       case "deploy": return <Upload className="h-4 w-4" />;
     }
   };
@@ -95,7 +100,7 @@ const Index = () => {
                         <span>Design Mode</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => setAppMode("generate")} className="flex items-center gap-2">
-                        <Code className="h-4 w-4" />
+                        <img src="/placeholder.svg" alt="Generate" className="h-4 w-4" />
                         <span>Generate Mode</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => setAppMode("deploy")} className="flex items-center gap-2">
